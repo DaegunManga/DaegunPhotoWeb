@@ -1,10 +1,13 @@
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import styles from '@/styles/Viewer.module.css';
+import { useCallback, useEffect, useState } from 'react';
+import axios from 'axios';
 
 export default function ImageViewer() {
   const router = useRouter();
   const { id } = router.query;
+  const [url, setURL] = useState<string | undefined>();
 
   return (
     <div className={`${styles.wrapper}`}>
@@ -16,14 +19,20 @@ export default function ImageViewer() {
           fill
         />
       </div>
-      <p>다운로드 기간: 11/20~12/1</p>
-      <Image
-        alt='이미지'
-        src={`${process.env.BASE_URL}/image/${id}`}
-        width='680'
-        height='1080'
-      />
-      <button>다운로드</button>
+      <p className={`${styles.limit}`}>다운로드 기간: 11/20~12/1</p>
+      {url ?? (
+        <img
+          className={`${styles.image}`}
+          alt='이미지'
+          src={`http://photo-back.dgmanga.kr/files/${id}`}
+        />
+      )}
+      <a
+        href={`http://photo-back.dgmanga.kr/down/${id}`}
+        className={`${styles.download}`}
+      >
+        다운로드
+      </a>
     </div>
   );
 }

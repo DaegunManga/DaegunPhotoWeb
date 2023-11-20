@@ -8,6 +8,11 @@
   flex-direction: column;
 }
 
+.limit {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
 .logo_wrapper {
   position: relative; 
 }
@@ -15,4 +20,20 @@
 .logo {
   position: relative !important;
   height: unset !important;
+}
+
+.image {
+  margin: 1rem;
+  width: 80vw;
+  max-width: 25rem;
+  height: auto;
+}
+
+.download {
+  background: #ffb14a;
+  color: white;
+  padding: .5rem 1rem;
+  font-size: 1.2rem;
+  border-radius: .5rem;
+  font-weight: bold;
 }

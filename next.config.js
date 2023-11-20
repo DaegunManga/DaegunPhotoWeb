@@ -7,6 +7,10 @@ const nextConfig = {
         protocol: 'http',
         hostname: 'localhost',
       },
+      {
+        protocol: 'http',
+        hostname: 'photo-back.dgmanga.kr',
+      },
     ],
   },
 };
